@@ -26,7 +26,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]
