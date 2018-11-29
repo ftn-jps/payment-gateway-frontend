@@ -11,6 +11,8 @@ import { PaypalComponent } from './components/paypal/paypal.component';
 import { CryptoCurrencyComponent } from './components/crypto-currency/crypto-currency.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ServerService } from './components/services/server.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
