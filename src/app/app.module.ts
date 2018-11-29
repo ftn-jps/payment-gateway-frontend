@@ -28,7 +28,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
