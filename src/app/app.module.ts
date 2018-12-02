@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ServerService } from './components/services/server.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { PayPalAuthService } from './components/services/payPalAuth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     NgxSpinnerModule
   ],
-  providers: [ServerService],
+  providers: [ServerService,PayPalAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
