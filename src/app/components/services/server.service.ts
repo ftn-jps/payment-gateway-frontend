@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { PayPalAuthService} from '../services/payPalAuth.service'
+
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ServerService {
@@ -11,7 +13,10 @@ export class ServerService {
    }
 
    forwardTransactionBitcoin() {
-     return this.http.get(this.url + "/111/" + "type/BITCOIN");
+     return this.http.get(this.url + "/111/" + "type/BITCOIN").pipe(map((response : Response) => {
+       const data = response.text();
+       return data;
+     }));
    }
 
    forwardTransactionPayPal() {

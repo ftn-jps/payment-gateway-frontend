@@ -21,9 +21,9 @@ export class CryptoCurrencyComponent implements OnInit {
 
     this.serverService.forwardTransactionBitcoin()
       .subscribe( 
-        (response: Response) => {
+        (response: any) => {
 
-          window.location.href = response.url;
+          window.location.href = response;
           
         },
         (error) => console.log(error) );
