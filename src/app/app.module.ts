@@ -14,6 +14,10 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { ServerService } from './components/services/server.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PayPalAuthService } from './components/services/payPalAuth.service';
+import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypal-success.component';
+import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
+import { PaypalService } from './components/services/paypal.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,16 +27,19 @@ import { PayPalAuthService } from './components/services/payPalAuth.service';
     PaypalComponent,
     CryptoCurrencyComponent,
     HomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    PaypalSuccessComponent,
+    PaypalFailureComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     NgxSpinnerModule
   ],
-  providers: [ServerService,PayPalAuthService],
+  providers: [ServerService,PayPalAuthService, PaypalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,9 @@ import { CryptoCurrencyComponent } from "./components/crypto-currency/crypto-cur
 import { PaypalComponent } from "./components/paypal/paypal.component";
 import { HomeComponent } from "./components/home/home.component";
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypal-success.component';
+import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
+
 
 const appRoutes: Routes = 
 [
@@ -14,6 +17,8 @@ const appRoutes: Routes =
     {path: 'credit-card', component: CreditCardComponent},
     {path: 'crypto-currency', component: CryptoCurrencyComponent},
     {path: 'paypal', component: PaypalComponent},
+    {path: 'paypal/success', component: PaypalSuccessComponent},
+    {path: 'paypal/failure', component: PaypalFailureComponent},
     { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     { path: '**', redirectTo: '/not-found' }
 ];

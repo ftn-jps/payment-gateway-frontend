@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ServerService } from '../services/server.service';
+import { windowTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-paypal',
@@ -17,10 +18,13 @@ export class PaypalComponent implements OnInit {
     this.spinner.show();
 
     this.serverService.forwardTransactionPayPal().subscribe(
-        (response) => {
-          console.log(response);
+        (url: any) => {
+          let link = url._body;
+          window.location.href = link;
         }
       )
   }
+
+  
 
 }
