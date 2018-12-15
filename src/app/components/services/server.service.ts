@@ -19,8 +19,12 @@ export class ServerService {
      }));
    }
 
-   forwardTransactionPayPal() {
-    return this.http.get(this.url + "/" + this.payPalAuthService.getAccessToken() +"/" + "type/PAYPAL");
+   forwardTransactionPayPal(token: string) {
+    console.log(token);
+    console.log('poslao request')
+    return this.http.get(this.url + "/" + token +"/" + "type/PAYPAL");
+    
+    
    }
    
 }
