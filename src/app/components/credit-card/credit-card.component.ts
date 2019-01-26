@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ServerService } from '../services/server.service';
 
 @Component({
   selector: 'app-credit-card',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditCardComponent implements OnInit {
 
-  constructor() { }
+  private token: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService,
+    private serverService: ServerService
+  ) { }
 
   ngOnInit() {
+    this.spinner.show();
+    this.token = this.route.snapshot.params['token'];
+    this.serverService.forwardTransactionBank(this.token).
+      subscribe(
+        (response: any) => {
+          window.location.href = response._body;
+        }
+      )
   }
 
 }

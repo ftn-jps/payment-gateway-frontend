@@ -23,8 +23,9 @@ export class ServerService {
     console.log(token);
     console.log('poslao request')
     return this.http.get(this.url + "/" + token +"/" + "type/PAYPAL");
-    
-    
    }
    
+   forwardTransactionBank(token: string){
+    return this.http.get(this.url + "/" + token +"/" + "type/BANK");
+   }
 }

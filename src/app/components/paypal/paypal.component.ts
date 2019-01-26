@@ -20,7 +20,6 @@ export class PaypalComponent implements OnInit {
     this.spinner.show();
 
     if (typeof this.paypalAuth.getAccessToken() === 'string'){
-      console.log('CUVAJJ TOKEN');
       localStorage.setItem('token',this.paypalAuth.getAccessToken());
       this.serverService.forwardTransactionPayPal(this.paypalAuth.getAccessToken()).subscribe(
         (url: any) => {
@@ -32,7 +31,6 @@ export class PaypalComponent implements OnInit {
 
     this.paypalAuth.getAccessToken().subscribe(
       (response: any) => {
-        console.log('CUVAJJ TOKEN');
         localStorage.setItem('token',response.access_token);
         this.serverService.forwardTransactionPayPal(response.access_token).subscribe(
           (url: any) => {
@@ -42,12 +40,6 @@ export class PaypalComponent implements OnInit {
         )
       }
     )
-    // .subscribe(
-    //     (url: any) => {
-    //       let link = url._body;
-    //       window.location.href = link;
-    //     }
-    //   )
   }
 
   

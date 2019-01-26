@@ -14,7 +14,7 @@ import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypa
 const appRoutes: Routes = 
 [
     {path: '', component: HomeComponent},
-    {path: 'credit-card', component: CreditCardComponent},
+    {path: 'credit-card/:token', component: CreditCardComponent},
     {path: 'crypto-currency', component: CryptoCurrencyComponent},
     {path: 'paypal', component: PaypalComponent},
     {path: 'paypal/success', component: PaypalSuccessComponent},
