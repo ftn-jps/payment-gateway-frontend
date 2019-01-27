@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.token = this.route.snapshot.fragment.split('/')[2];
+    if(this.route.snapshot.fragment){
+      this.token = this.route.snapshot.fragment.split('/')[2];
+    }
+    
   }
 
 

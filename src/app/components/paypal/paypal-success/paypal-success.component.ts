@@ -23,15 +23,6 @@ export class PaypalSuccessComponent implements OnInit {
     this.paymentId = this.route.snapshot.queryParams.paymentId;
     this.payerID = this.route.snapshot.queryParams.PayerID;
     this.token = this.route.snapshot.queryParams.token;
-    if(!localStorage.getItem('token')){
-      window.location.href= 
-      "http://localhost:4201/paypal/success?paymentId="+
-      this.paymentId +
-      "&token=" +
-      this.token +
-      "&PayerID=" +
-      this.payerID
-    }
   }
 
   executePayment() {
