@@ -19,6 +19,7 @@ export class PayPalAuthService {
     let body = 'grant_type=client_credentials';
 
     let headers = new HttpHeaders();
+    console.log(btoa('ATpIbDWRhS_L3c46Iz9-qgE1l_Iisfg6u4luC-JOPxfp2Klg6VrRz1ANceUgXSH-OTEckdBLwIKrs4Ug:EDDxtGUSysQafC--ODcd8jKoE8ZFNNa3tNB82I4u4lTPU3cNjeV3DsWO8NhE3H1mK46Euz0ZtOD5HNBO'));
     headers = headers.append('Authorization', "Basic " + btoa('ATpIbDWRhS_L3c46Iz9-qgE1l_Iisfg6u4luC-JOPxfp2Klg6VrRz1ANceUgXSH-OTEckdBLwIKrs4Ug:EDDxtGUSysQafC--ODcd8jKoE8ZFNNa3tNB82I4u4lTPU3cNjeV3DsWO8NhE3H1mK46Euz0ZtOD5HNBO'));
     headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
 

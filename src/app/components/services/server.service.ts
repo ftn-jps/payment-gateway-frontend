@@ -19,7 +19,7 @@ export class ServerService {
      }));
    }
 
-   forwardTransactionPayPal(token: string) {
+   forwardTransactionPayPal(token: String) {
     console.log(token);
     console.log('poslao request')
     return this.http.get(this.url + "/" + token +"/" + "type/PAYPAL");

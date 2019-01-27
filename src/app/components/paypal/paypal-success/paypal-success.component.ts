@@ -8,7 +8,11 @@ import { PaypalService } from '../../services/paypal.service';
 })
 export class PaypalSuccessComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private paypalService: PaypalService) { }
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute, 
+    private paypalService: PaypalService
+    ) { }
 
   private paymentId: string;
   private token: string;
@@ -16,12 +20,18 @@ export class PaypalSuccessComponent implements OnInit {
   public executePaymentResponse: any;
   
   ngOnInit() {
-    console.log("usao")
     this.paymentId = this.route.snapshot.queryParams.paymentId;
     this.payerID = this.route.snapshot.queryParams.PayerID;
-    console.log(this.paymentId);
-    console.log(this.payerID);
-    
+    this.token = this.route.snapshot.queryParams.token;
+    if(!localStorage.getItem('token')){
+      window.location.href= 
+      "http://localhost:4201/paypal/success?paymentId="+
+      this.paymentId +
+      "&token=" +
+      this.token +
+      "&PayerID=" +
+      this.payerID
+    }
   }
 
   executePayment() {

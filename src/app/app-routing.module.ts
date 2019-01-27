@@ -16,7 +16,7 @@ const appRoutes: Routes =
     {path: '', component: HomeComponent},
     {path: 'credit-card/:token', component: CreditCardComponent},
     {path: 'crypto-currency', component: CryptoCurrencyComponent},
-    {path: 'paypal', component: PaypalComponent},
+    {path: 'paypal-create-payment/:token', component: PaypalComponent},
     {path: 'paypal/success', component: PaypalSuccessComponent},
     {path: 'paypal/failure', component: PaypalFailureComponent},
     { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },

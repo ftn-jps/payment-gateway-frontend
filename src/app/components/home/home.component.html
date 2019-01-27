@@ -4,7 +4,7 @@
       <img style="max-width: 80%;" src="assets/images/credit-cards.jpg" align="center" /> </a> </td>
     <td> <a routerLink="crypto-currency">
       <img style="max-width: 80%;" src="assets/images/cryptocurrency.jpg" alt="" align="center" /> </a> </td>
-    <td> <a routerLink="paypal">
+    <td> <a [routerLink]="['/paypal-create-payment',token]">
       <img style="max-width: 80%;" src="assets/images/PayPal.png" alt="" align="center"/> </a> </td>
     </tr>
   </table>
