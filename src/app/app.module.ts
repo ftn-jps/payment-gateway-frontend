@@ -18,6 +18,10 @@ import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypa
 import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
 import { PaypalService } from './components/services/paypal.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SubscriptionFailureComponent } from './components/subscription/subscription-failure/subscription-failure.component';
+import { SubscriptionSuccessComponent } from './components/subscription/subscription-success/subscription-success.component';
+import { SubscriptionService } from './components/services/subscription.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ErrorPageComponent,
     PaypalSuccessComponent,
-    PaypalFailureComponent
+    PaypalFailureComponent,
+    SubscriptionComponent,
+    SubscriptionFailureComponent,
+    SubscriptionSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgxSpinnerModule
   ],
-  providers: [ServerService,PayPalAuthService, PaypalService],
+  providers: [ServerService,PayPalAuthService, PaypalService, SubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

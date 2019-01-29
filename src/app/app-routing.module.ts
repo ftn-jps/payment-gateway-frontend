@@ -9,6 +9,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypal-success.component';
 import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 
 
 const appRoutes: Routes = 
@@ -19,8 +20,9 @@ const appRoutes: Routes =
     {path: 'paypal-create-payment/:token', component: PaypalComponent},
     {path: 'paypal/success', component: PaypalSuccessComponent},
     {path: 'paypal/failure', component: PaypalFailureComponent},
-    { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
-    { path: '**', redirectTo: '/not-found' }
+    {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
+    {path: 'subscription', component: SubscriptionComponent},
+    {path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
