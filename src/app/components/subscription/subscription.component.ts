@@ -34,6 +34,7 @@ export class SubscriptionComponent implements OnInit {
     this.subscriptionService.startSubscription(this.token).subscribe(
       (res:any) => {
         console.log(res);
+        window.location.href = res.url;
       }
     )
   }
