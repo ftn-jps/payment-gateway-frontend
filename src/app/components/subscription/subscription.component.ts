@@ -9,6 +9,9 @@ import { SubscriptionService } from '../services/subscription.service';
 })
 export class SubscriptionComponent implements OnInit {
 
+
+
+  private accessToken;
   private token: String;
   public subscriptionId: any;
   public subscription = {
@@ -34,6 +37,8 @@ export class SubscriptionComponent implements OnInit {
     this.subscriptionService.startSubscription(this.token).subscribe(
       (res:any) => {
         console.log(res);
+        this.accessToken = res.encodedAccessToken;
+        localStorage.setItem('token', atob(this.accessToken));
         window.location.href = res.url;
       }
     )

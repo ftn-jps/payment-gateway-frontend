@@ -10,6 +10,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypal-success.component';
 import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SubscriptionSuccessComponent } from './components/subscription/subscription-success/subscription-success.component';
 
 
 const appRoutes: Routes = 
@@ -22,12 +23,12 @@ const appRoutes: Routes =
     {path: 'paypal/failure', component: PaypalFailureComponent},
     {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     {path: 'subscription', component: SubscriptionComponent},
+    {path: 'subscription/success', component: SubscriptionSuccessComponent},
     {path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
     imports: [
-      // RouterModule.forRoot(appRoutes, {useHash: true})
       RouterModule.forRoot(appRoutes)
     ],
     exports: [RouterModule]

@@ -1,3 +1,14 @@
-<p>
-  subscription-success works!
-</p>
+<div class="jumbotron" *ngIf="subscription">
+  <h3> Subscription details</h3>
+  <hr>
+  Plan description: <h4>{{subscription.description}}</h4>
+  Status: <h4>{{subscription.state}}</h4>
+  Start date: <h4>{{subscription.start_date}}</h4>
+  <hr>
+  Cycles completed: <h4>{{subscription.agreement_details.cycles_completed}}</h4>
+  Cycles remaining: <h4>{{subscription.agreement_details.cycles_remaining}}</h4>
+  Next billing date: <h4>{{subscription.agreement_details.next_billing_date}}</h4>
+  Final payment date: <h4>{{subscription.agreement_details.final_payment_date}}</h4>
+  Outstanding balance: <h4>{{subscription.agreement_details.outstanding_balance.value}}$</h4>
+
+</div>
