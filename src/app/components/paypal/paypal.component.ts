@@ -29,32 +29,11 @@ export class PaypalComponent implements OnInit {
     .subscribe(
       (res: any) => {
         const encodedToken = res._body.split('\n')[1];
-        const allowPaymentLink = res._body.split('\n')[0]
+        const encodedAllowPaymentLink = res._body.split('\n')[0]
         localStorage.setItem('token', atob(encodedToken));
-        window.location.href = allowPaymentLink;
+        window.location.href = atob(encodedAllowPaymentLink);
       } 
   )
-    // if (typeof this.paypalAuth.getAccessToken() === 'string'){
-    //   localStorage.setItem('token',this.paypalAuth.getAccessToken());
-    //   this.serverService.forwardTransactionPayPal(this.paypalAuth.getAccessToken()).subscribe(
-    //     (url: any) => {
-    //       let link = url._body;
-    //       window.location.href = link;
-    //     }
-    //   )
-    // }
-
-    // this.paypalAuth.getAccessToken().subscribe(
-    //   (response: any) => {
-    //     localStorage.setItem('token',response.access_token);
-    //     this.serverService.forwardTransactionPayPal(response.access_token).subscribe(
-    //       (url: any) => {
-    //         let link = url._body;
-    //         window.location.href = link;
-    //       }
-    //     )
-    //   }
-    // )
   }
 
   
