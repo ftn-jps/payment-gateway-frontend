@@ -22,6 +22,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
 import { SubscriptionFailureComponent } from './components/subscription/subscription-failure/subscription-failure.component';
 import { SubscriptionSuccessComponent } from './components/subscription/subscription-success/subscription-success.component';
 import { SubscriptionService } from './components/services/subscription.service';
+import { NewMerchantComponent } from './components/new-merchant/new-merchant.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SubscriptionService } from './components/services/subscription.service'
     PaypalFailureComponent,
     SubscriptionComponent,
     SubscriptionFailureComponent,
-    SubscriptionSuccessComponent
+    SubscriptionSuccessComponent,
+    NewMerchantComponent
   ],
   imports: [
     BrowserModule,

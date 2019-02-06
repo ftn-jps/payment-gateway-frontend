@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
-import { ModuleWithProviders } from "@angular/compiler/src/core";
-import { AppComponent } from "./app.component";
 import { CreditCardComponent } from "./components/credit-card/credit-card.component";
 import { CryptoCurrencyComponent } from "./components/crypto-currency/crypto-currency.component";
 import { PaypalComponent } from "./components/paypal/paypal.component";
@@ -11,6 +9,7 @@ import { PaypalSuccessComponent } from './components/paypal/paypal-success/paypa
 import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypal-failure.component';
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { SubscriptionSuccessComponent } from './components/subscription/subscription-success/subscription-success.component';
+import { NewMerchantComponent } from './components/new-merchant/new-merchant.component';
 
 
 const appRoutes: Routes = 
@@ -24,6 +23,7 @@ const appRoutes: Routes =
     {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     {path: 'subscription', component: SubscriptionComponent},
     {path: 'subscription/success', component: SubscriptionSuccessComponent},
+    {path: 'new-merchant', component: NewMerchantComponent},
     {path: '**', redirectTo: '/not-found' }
 ];
 

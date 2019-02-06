@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row" *ngIf="!paymentFinished">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+        <div id="merchant-data">
+
+            <div class="form-group">
+              <label for="merchantId"> MerchantId: </label>
+              <input type="text" id="merchantId" class="form-control" ngModel name="merchantId"  required>
+            </div>
+            
+            <div class="form-group">
+              <label for="bankUrl"> Bank URL:  </label>
+              <input type="text" 
+                id="bankUrl" 
+                class="form-control" 
+                ngModel 
+                name="bankUrl" 
+                ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" 
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="paypalClient"> Paypal client: </label>
+                <input type="text" id="paypalClient" class="form-control" ngModel name="paypalClient" >
+            </div>
+
+            <div class="form-group">
+              <label for="paypalSecret"> Paypal secret: </label>
+              <input type="password" id="paypalSecret" class="form-control" ngModel name="paypalSecret" >
+            </div>
+
+            <div class="form-group">
+              <label for="bitcoinToken"> Paypal secret: </label>
+              <input type="password" id="bitcoinToken" class="form-control" ngModel name="bitcoinToken" >
+            </div>
+          </div>
+
+        <button
+          class="btn btn-primary btn-block"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+
+      </form>
+    </div>
+  </div>
