@@ -10,6 +10,7 @@ import { PaypalFailureComponent } from './components/paypal/paypal-failure/paypa
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { SubscriptionSuccessComponent } from './components/subscription/subscription-success/subscription-success.component';
 import { NewMerchantComponent } from './components/new-merchant/new-merchant.component';
+import { SubscriptionFailureComponent } from './components/subscription/subscription-failure/subscription-failure.component';
 
 
 const appRoutes: Routes = 
@@ -22,7 +23,8 @@ const appRoutes: Routes =
     {path: 'paypal/failure/:token', component: PaypalFailureComponent},
     {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     {path: 'subscription', component: SubscriptionComponent},
-    {path: 'subscription/success', component: SubscriptionSuccessComponent},
+    {path: 'subscription/success/:token', component: SubscriptionSuccessComponent},
+    {path: 'subscription/failure/:token', component: SubscriptionFailureComponent},
     {path: 'new-merchant', component: NewMerchantComponent},
     {path: '**', redirectTo: '/not-found' }
 ];

@@ -18,6 +18,15 @@ constructor(private payPalAuth: PayPalAuthService, private http: HttpClient) { }
 
   } 
 
+  getSubscription(token: string){
+    var headers = new HttpHeaders({
+      'Content-Type' : 'application/json'
+    });
+    
+    return this.http.get("https://localhost:8081/api/subscriptions/getSubscription/"+token ,{headers: headers} );
+
+  } 
+
 
   executePayment(paymentId: string, payerId: string) {
     let body = JSON.stringify( {"payer_id" : payerId});
