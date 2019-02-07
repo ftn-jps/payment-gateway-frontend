@@ -35,7 +35,7 @@ export class NewMerchantComponent implements OnInit {
     this.merchantData.bitcoinToken = this.merchantForm.value.bitcoinToken;
     this.merchantService.addMerchant(this.merchantData).subscribe(
       (res: any) => {
-        console.log(res);
+        alert("Merchant added successefully!")
       }
     )
 
