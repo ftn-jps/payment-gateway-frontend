@@ -16,7 +16,7 @@ const appRoutes: Routes =
 [
     {path: '', component: HomeComponent},
     {path: 'credit-card/:token', component: CreditCardComponent},
-    {path: 'crypto-currency', component: CryptoCurrencyComponent},
+    {path: 'crypto-currency/:token', component: CryptoCurrencyComponent},
     {path: 'paypal-create-payment/:token', component: PaypalComponent},
     {path: 'paypal/success/:token', component: PaypalSuccessComponent},
     {path: 'paypal/failure/:token', component: PaypalFailureComponent},

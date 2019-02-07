@@ -12,8 +12,8 @@ export class ServerService {
   constructor(private http: Http, private payPalAuthService: PayPalAuthService) {
    }
 
-   forwardTransactionBitcoin() {
-     return this.http.get(this.url + "/111/" + "type/BITCOIN").pipe(map((response : Response) => {
+   forwardTransactionBitcoin(token: String) {
+     return this.http.get(this.url + "/" + token + "/" + "type/BITCOIN").pipe(map((response : Response) => {
        const data = response.text();
        return data;
      }));
@@ -22,7 +22,7 @@ export class ServerService {
    forwardTransactionPayPal(token: String) {
     console.log(token);
     console.log('poslao request')
-    return this.http.get(this.url + "/" + token +"/" + "type/PAYPAL");
+    return this.http.get(this.url + "/" + token + "/" + "type/PAYPAL");
    }
    
    forwardTransactionBank(token: string){
