@@ -3,6 +3,7 @@ import { ServerService } from '../services/server.service';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Response } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crypto-currency',
@@ -11,15 +12,19 @@ import { Response } from '@angular/http';
 })
 export class CryptoCurrencyComponent implements OnInit {
 
+  private token : String;
+
   constructor(
               private serverService: ServerService,
-              private spinner: NgxSpinnerService ) {}
+              private spinner: NgxSpinnerService,
+              private route: ActivatedRoute ) {}
 
   ngOnInit() {
 
     this.spinner.show();
-
-    this.serverService.forwardTransactionBitcoin()
+    this.token = this.route.snapshot.params['token'];
+    console.log('Iz bitcoina token: ' + this.token);
+    this.serverService.forwardTransactionBitcoin(this.token)
       .subscribe( 
         (response: any) => {
 
