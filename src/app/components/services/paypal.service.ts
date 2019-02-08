@@ -7,37 +7,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class PaypalService {
 
+  private url = "https://localhost:8081";
+
 constructor(private payPalAuth: PayPalAuthService, private http: HttpClient) { }
 
-  getTransaction(token: string){
-    var headers = new HttpHeaders({
-      'Content-Type' : 'application/json'
-    });
-    
-    return this.http.get("https://localhost:8081/api/transactions/getTransaction/"+token ,{headers: headers} );
-
-  } 
-
-  getSubscription(token: string){
-    var headers = new HttpHeaders({
-      'Content-Type' : 'application/json'
-    });
-    
-    return this.http.get("https://localhost:8081/api/subscriptions/getSubscription/"+token ,{headers: headers} );
-
-  } 
-
-
-  executePayment(paymentId: string, payerId: string) {
-    let body = JSON.stringify( {"payer_id" : payerId});
-
-    let token = localStorage.getItem('token');
-    var headers = new HttpHeaders({
-      'Content-Type' : 'application/json',
-      'Authorization' : 'Bearer ' + token
-    });
-    
-    return this.http.post("https://api.sandbox.paypal.com/v1/payments/payment/" + paymentId + "/execute", body, {headers: headers} );
+  executePaymentOnServer(paymentId: string, payerId: string, transactionToken: string) {
+    return this.http.get(
+      this.url + 
+      "/api/paypal/executePayment/" + 
+      paymentId +
+      "/" + 
+      payerId +
+      "/" +
+      transactionToken
+      );
   }
 
 
@@ -52,6 +35,16 @@ constructor(private payPalAuth: PayPalAuthService, private http: HttpClient) { }
 
     return this.http.post("https://api.sandbox.paypal.com/v1/payments/billing-agreements/" 
       + agreementToken + "/agreement-execute", {}, {headers: headers} );
+  }
+
+  executeAgreementOnServer(agreementToken: String, subscriptionToken: String) {
+    return this.http.get(
+      this.url 
+      + "/api/subscriptions/executeAgreement/" 
+      + agreementToken
+      + "/"
+      + subscriptionToken
+      );
   }
 
 

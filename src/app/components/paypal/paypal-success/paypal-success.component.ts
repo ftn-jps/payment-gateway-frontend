@@ -26,27 +26,15 @@ export class PaypalSuccessComponent implements OnInit {
     this.payerID = this.route.snapshot.queryParams.PayerID;
     this.token = this.route.snapshot.queryParams.token;
     this.transactionToken = this.route.snapshot.params['token'];
-    this.paypalService.getTransaction(this.transactionToken) .subscribe( 
-      (res: any) => {
-        this.transaction = res;
-      }
-    )
-
-
   }
 
   executePayment() {
-    this.paypalService.executePayment(this.paymentId,this.payerID).subscribe(
-      (response) => {
-        this.executePaymentResponse = response;
-        console.log(this.executePaymentResponse);
-        alert('Payment executed successefully')
-        window.location.href = this.transaction.successUrl;
-      },
-      (error: any) => {
-        window.location.href = this.transaction.errorUrl;
+    this.paypalService.executePaymentOnServer(this.paymentId, this.payerID, this.transactionToken)
+    .subscribe(
+      (res: any) => {
+        console.log(res);
+        window.location.href = res.url;
       }
     )
   }
-
 }

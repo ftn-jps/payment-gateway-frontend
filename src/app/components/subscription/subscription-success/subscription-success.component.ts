@@ -23,27 +23,16 @@ export class SubscriptionSuccessComponent implements OnInit {
 
   ngOnInit() {
     this.subscriptionToken = this.route.snapshot.params['token'];
-    this.paypalService.getSubscription(this.subscriptionToken).subscribe( 
-      (res: any) => {
-        this.subscriptionData = res;
-        console.log(res)
-        this.token = this.route.snapshot.queryParams.token;
-        this.paypalService.executeAgreement(this.token)
-          .subscribe( (res:any) => {
-            this.subscription = res;
-            console.log(res)
-            alert("Automatic payment successefully set");
-            alert(this.subscriptionData.successUrl +"/"+ moment().add(2,'years'))
-            window.location.href = this.subscriptionData.successUrl +"/"+ moment().add(2,'years');
-          },
-          error => {
-            window.location.href = res.errorUrl 
-          })
-      }
-    )
+      this.token = this.route.snapshot.queryParams.token;
 
-    
-
+      this.paypalService.executeAgreementOnServer(this.token, this.subscriptionToken)
+        .subscribe( (res:any) => {
+          this.subscription = res;
+          console.log(res)
+          alert("Automatic payment successefully set");
+          alert(res.url +"/"+ moment().add(2,'years'))
+          window.location.href = res.url +"/"+ moment().add(2,'years');
+        });
   }
 
 }

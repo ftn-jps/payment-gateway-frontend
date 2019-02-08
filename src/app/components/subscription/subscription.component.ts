@@ -26,17 +26,11 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
     this.token = this.route.snapshot.fragment.split('/')[1];
     console.log(this.token);
-    this.subscriptionService.getSubscription(this.token).subscribe(
-      (res:any) => {
-        this.subscription = res;
-      }
-    )
   }
 
   confirm() {
     this.subscriptionService.startSubscription(this.token).subscribe(
       (res:any) => {
-        console.log(res);
         this.accessToken = res.encodedAccessToken;
         localStorage.setItem('token', atob(this.accessToken));
         window.location.href = res.url;
